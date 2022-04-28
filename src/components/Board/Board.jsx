@@ -39,12 +39,22 @@ function Board() {
 
   function changePlayer() {
     if (currPlayer.name === PLAYER1.name) {
-      console.log('player 1 played!');
       setCurrPlayer(PLAYER2);
     } else {
-      console.log('player 2 played!');
       setCurrPlayer(PLAYER1);
     }
+  }
+
+  function checkGameLogic(value) {
+    console.log('start check logic');
+    console.log(value);
+    console.log(cells[0]);
+    const arrangedCellsData = ((cells) => {
+      const resultArr = [];
+      for (let cell of cells) {
+        // resultArr.push(cell.)
+      }
+    })(cells);
   }
 
   function initCellArray(currPlayer) {
@@ -56,6 +66,7 @@ function Board() {
           setCurrPlayer={setCurrPlayer}
           currPlayer={currPlayer}
           changePlayer={changePlayer}
+          checkGameLogic={checkGameLogic}
           key={i}
         />
       );

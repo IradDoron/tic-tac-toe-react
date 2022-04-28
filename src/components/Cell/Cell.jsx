@@ -11,13 +11,17 @@ const CellEl = styled.div`
   padding: 10px;
 `;
 
-function Cell({ currPlayer, setCurrPlayer, changePlayer }) {
+function Cell({ currPlayer, setCurrPlayer, changePlayer, checkGameLogic }) {
   const [value, setValue] = useState(null);
 
   function handleClick() {
     setValue(currPlayer.sign);
     changePlayer();
   }
+
+  useEffect(() => {
+    checkGameLogic(value);
+  }, [value]);
 
   return (
     <>
