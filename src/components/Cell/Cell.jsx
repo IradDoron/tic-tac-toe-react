@@ -11,27 +11,17 @@ const CellEl = styled.div`
   padding: 10px;
 `;
 
-function Cell({ currPlayer, setCurrPlayer }) {
+function Cell({ currPlayer, setCurrPlayer, changePlayer }) {
   const [value, setValue] = useState(null);
 
   function handleClick() {
-    if (currPlayer === 'player1') {
-      setValue('X');
-      setCurrPlayer('player2');
-    } else {
-      setValue('O');
-      setCurrPlayer('player1');
-    }
+    setValue(currPlayer.sign);
+    changePlayer();
   }
-
-  useEffect(() => {
-    console.log(value);
-    console.log(currPlayer);
-  }, [value]);
 
   return (
     <>
-      <CellEl onClick={handleClick} />
+      <CellEl onClick={handleClick}>{value}</CellEl>
     </>
   );
 }
